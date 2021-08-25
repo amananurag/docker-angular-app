@@ -1,0 +1,12 @@
+FROM node:alpine
+
+WORKDIR /usr/app
+
+COPY ./package.json ./
+
+RUN npm install --legacy-peer-deps && \
+    npm install -g @angular/cli
+    
+COPY . .
+
+CMD ["npm", "start"]
